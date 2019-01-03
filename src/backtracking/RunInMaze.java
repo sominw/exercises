@@ -4,7 +4,7 @@ package backtracking;
  * Input: N, followed 1s & 0s for a 2D matrix (N*N) filled row-wise
  * Output: Paths from (0,0) to (N-1, N-1) assuming they're both set to 1
  * 
- * @Author: sominwadhwa
+ * @Author: sw
  */
 
 public class RunInMaze {
