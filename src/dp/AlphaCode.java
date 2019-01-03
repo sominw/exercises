@@ -31,5 +31,6 @@ public class AlphaCode {
 			System.out.println(getTotalNoOfCodes(ch, ch.length));
 			str = scan.next();
 		}
+		scan.close();
 	}
 }
