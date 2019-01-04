@@ -3,7 +3,7 @@ package linkedlist;
 class LinkedList {
 
 	Node head;
-	
+
 	public void deleteByElement(int element) {
 		if (this.head == null) {
 			System.out.println("Empty List! Add some elements first!");
@@ -26,7 +26,7 @@ class LinkedList {
 		if (prevSize == this.getSize())
 			System.out.println("Node not found!!");
 	}
-	
+
 	public void deleteByIndex(int index) {
 		if (this.head == null || index + 1 > this.getSize() || index < 0) {
 			System.out.println("Could not delete. Either list is empty or index is invalid");
