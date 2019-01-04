@@ -9,8 +9,8 @@ class LinkedList {
 	public void insertElement(int element) {
 		Node tempHead = this.head;
 		if (tempHead == null) {
-			this.head = new LinkedList.Node(element);
-			System.out.println("Successfully inserted element into new list.");
+			this.head = new Node(element);
+			System.out.println("Successfully inserted element into a new list (index 0).");
 			return;
 		}
 		int count = 1;
@@ -18,7 +18,7 @@ class LinkedList {
 			count++;
 			tempHead = tempHead.next;
 		}
-		Node node = new LinkedList.Node(element);
+		Node node = new Node(element);
 		tempHead.next = node;
 		System.out.println("Successfully inserted element at index: " + count);
 	}
