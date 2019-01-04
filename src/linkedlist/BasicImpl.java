@@ -3,10 +3,38 @@ package linkedlist;
 class LinkedList {
 
 	Node head;
-
+	
+	public void deleteByElement(int element) {
+		if (this.head == null) {
+			System.out.println("Empty List! Add some elements first!");
+			return;
+		}
+		int prevSize = this.getSize();
+		while (this.head.data == element && this.head != null) {
+			this.head = this.head.next;
+		}
+		Node currNode = this.head;
+		Node prevNode = null;
+		while (currNode != null) {
+			if (currNode.data == element) {
+				System.out.println("Element deleted!");
+				prevNode.next = currNode.next;
+			}
+			prevNode = currNode;
+			currNode = currNode.next;
+		}
+		if (prevSize == this.getSize())
+			System.out.println("Node not found!!");
+	}
+	
 	public void deleteByIndex(int index) {
 		if (this.head == null || index + 1 > this.getSize() || index < 0) {
 			System.out.println("Could not delete. Either list is empty or index is invalid");
+			return;
+		}
+		if (index == 0) {
+			this.head = this.head.next;
+			System.out.println("Element deleted at index: " + index);
 			return;
 		}
 		Node tempNode = this.head;
@@ -122,6 +150,8 @@ public class BasicImpl {
 		list.deleteByIndex(1);
 		list.printList();
 		list.reverseList();
+		list.printList();
+		list.deleteByElement(1);
 		list.printList();
 	}
 }
