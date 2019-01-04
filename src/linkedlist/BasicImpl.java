@@ -1,11 +1,52 @@
 package linkedlist;
 
-import linkedlist.LinkedList.Node;
-
 class LinkedList {
 
 	Node head;
 	
+	public void reverseList() {
+		if (this.head == null || this.getSize() <= 1) {
+			System.out.println("Could not reverse, add some elements!");
+			return;
+		}
+		Node currNode = this.head;
+		Node prevNode = null;
+		Node nextNode = null;
+		
+		while (currNode != null) {
+			nextNode = currNode.next;
+			currNode.next = prevNode;
+			prevNode = currNode;
+			currNode = nextNode;
+		}
+		this.head = prevNode;
+		System.out.println("LIST REVERSED!");
+	}
+	
+	public void search(int element) {
+		Node tempHead = this.head;
+		int index = 0;
+		while (tempHead != null) {
+			if (tempHead.data == element) {
+				System.out.println("Element found at index: " + index);
+				return;
+			}
+			tempHead = tempHead.next;
+			index++;
+		}
+		System.out.println("Element not found!");
+	}
+
+	public int getSize() {
+		Node tempHead = this.head;
+		int count = 0;
+		while (tempHead != null) {
+			count++;
+			tempHead = tempHead.next;
+		}
+		return count;
+	}
+
 	public void insertElement(int element) {
 		Node tempHead = this.head;
 		if (tempHead == null) {
@@ -22,7 +63,7 @@ class LinkedList {
 		tempHead.next = node;
 		System.out.println("Successfully inserted element at index: " + count);
 	}
-	
+
 	public void printList() {
 		Node tempHead = this.head;
 		if (tempHead == null) {
@@ -56,6 +97,11 @@ public class BasicImpl {
 		list.insertElement(2);
 		list.insertElement(3);
 		list.insertElement(4);
+		System.out.println();
+		list.printList();
+		System.out.println("\n");
+		System.out.println("Size of the list is: " + list.getSize());
+		list.reverseList();
 		list.printList();
 	}
 }
