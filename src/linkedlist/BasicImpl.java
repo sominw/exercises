@@ -4,6 +4,29 @@ class LinkedList {
 
 	Node head;
 
+	public boolean isPalindrome() {
+		
+		LinkedList revList = new LinkedList();
+		this.reverseList();
+		Node tempHead = this.head;
+		while (tempHead != null) {
+			revList.insertElement(tempHead.data);
+			tempHead = tempHead.next;
+		}
+		this.reverseList();
+		Node currHead = this.head;
+		Node revHead = revList.head;
+
+		while (currHead != null) {
+			if (currHead.data != revHead.data)
+				return false;
+			currHead = currHead.next;
+			revHead = revHead.next;
+		}
+
+		return true;
+	}
+
 	public void deleteByElement(int element) {
 		if (this.head == null) {
 			System.out.println("Empty List! Add some elements first!");
@@ -141,17 +164,8 @@ public class BasicImpl {
 		LinkedList list = new LinkedList();
 		list.insertElement(1);
 		list.insertElement(2);
-		list.insertElement(3);
-		list.insertElement(4);
-		list.printList();
-		System.out.println("Size of the list is: " + list.getSize());
-		list.reverseList();
-		list.printList();
-		list.deleteByIndex(1);
-		list.printList();
-		list.reverseList();
-		list.printList();
-		list.deleteByElement(1);
-		list.printList();
+		list.insertElement(1);
+		list.insertElement(2);
+		System.out.println(list.isPalindrome());
 	}
 }
