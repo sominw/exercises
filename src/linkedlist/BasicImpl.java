@@ -3,6 +3,28 @@ package linkedlist;
 class LinkedList {
 
 	Node head;
+	
+	public void swapTwoElements(int i, int j) {
+		Node i_node = null;
+		Node j_node = null;
+		Node temp = this.head;
+		int index = 0;
+		while (index != i) {
+			temp = temp.next;
+			index++;
+		}
+		i_node = temp;
+		temp = this.head;
+		index = 0;
+		while (index != j) {
+			temp = temp.next;
+			index++;
+		}
+		j_node = temp;
+		int holder = i_node.data;
+		i_node.data = j_node.data;
+		j_node.data = holder;
+	}
 
 	public boolean isPalindrome() {
 		
@@ -162,10 +184,13 @@ public class BasicImpl {
 	public static void main(String[] args) {
 
 		LinkedList list = new LinkedList();
-		list.insertElement(1);
-		list.insertElement(2);
-		list.insertElement(1);
-		list.insertElement(2);
-		System.out.println(list.isPalindrome());
+		list.insertElement(1); // 0
+		list.insertElement(2); // 1
+		list.insertElement(3); // 2
+		list.insertElement(4); // 3
+		list.insertElement(5); // 4
+		list.printList();
+		list.swapTwoElements(2, 4);
+		list.printList();
 	}
 }
