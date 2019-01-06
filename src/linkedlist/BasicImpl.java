@@ -3,7 +3,42 @@ package linkedlist;
 class LinkedList {
 
 	Node head;
-	
+
+	public void reverseAtInterval(int k) {
+		if (k >= this.getSize()) {
+			this.reverseList();
+			return;
+		}
+
+		LinkedList tempList = new LinkedList();
+
+		Node currNode = this.head;
+		Node prevNode = null;
+		Node nextNode = null;
+
+		while (currNode != null) {
+
+			int counter = 1;
+			while (counter <= k && currNode != null) {
+				counter++;
+				nextNode = currNode.next;
+				currNode.next = prevNode;
+				prevNode = currNode;
+				currNode = nextNode;
+			}
+
+			while (prevNode != null) {
+				tempList.insertElement(prevNode.data);
+				prevNode = prevNode.next;
+			}
+			counter = 1;
+			prevNode = null;
+			nextNode = null;
+		}
+
+		this.head = tempList.head;
+	}
+
 	public void swapTwoElements(int i, int j) {
 		Node i_node = null;
 		Node j_node = null;
@@ -27,7 +62,7 @@ class LinkedList {
 	}
 
 	public boolean isPalindrome() {
-		
+
 		LinkedList revList = new LinkedList();
 		this.reverseList();
 		Node tempHead = this.head;
@@ -188,9 +223,14 @@ public class BasicImpl {
 		list.insertElement(2); // 1
 		list.insertElement(3); // 2
 		list.insertElement(4); // 3
-		list.insertElement(5); // 4
+		list.insertElement(5);
+		list.insertElement(6);
+		list.insertElement(7);
+		list.insertElement(8);
+		list.insertElement(9);
+
 		list.printList();
-		list.swapTwoElements(2, 4);
+		list.reverseAtInterval(5);
 		list.printList();
 	}
 }
