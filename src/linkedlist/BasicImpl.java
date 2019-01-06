@@ -242,10 +242,10 @@ public class BasicImpl {
 	public static void main(String[] args) {
 
 		LinkedList list = new LinkedList();
-		list.insertElement(1); // 0
-		list.insertElement(2); // 1
-		list.insertElement(3); // 2
-		list.insertElement(4); // 3
+		list.insertElement(1); 
+		list.insertElement(2); 
+		list.insertElement(3); 
+		list.insertElement(4); 
 		list.insertElement(5);
 		list.insertElement(6);
 		list.insertElement(7);
