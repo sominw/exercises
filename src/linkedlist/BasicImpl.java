@@ -3,7 +3,30 @@ package linkedlist;
 class LinkedList {
 
 	Node head;
-
+	
+	public void oddEvenArrangement() {
+		LinkedList oddList = new LinkedList();
+		LinkedList evenList = new LinkedList();
+		
+		Node currHead = this.head;
+		
+		while (currHead != null) {
+			if (currHead.data % 2 == 0) {
+				evenList.insertElement(currHead.data);
+			}
+			else {
+				oddList.insertElement(currHead.data);
+			}
+			currHead = currHead.next;
+		}
+		Node oddHead = oddList.head;
+		while(oddHead.next != null)
+			oddHead = oddHead.next;
+		oddHead.next = evenList.head;
+		
+		this.head = oddList.head;
+	}
+	
 	public void reverseAtInterval(int k) {
 		if (k >= this.getSize()) {
 			this.reverseList();
@@ -228,9 +251,8 @@ public class BasicImpl {
 		list.insertElement(7);
 		list.insertElement(8);
 		list.insertElement(9);
-
-		list.printList();
-		list.reverseAtInterval(5);
+		
+		list.oddEvenArrangement();
 		list.printList();
 	}
 }
