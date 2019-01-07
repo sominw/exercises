@@ -91,6 +91,7 @@ public class MergeSortLinkedList {
 	}
 
 	public static void print(LinkedListNode<Integer> head) {
+		
 		LinkedListNode<Integer> temp = head;
 		while (temp != null) {
 			System.out.print(temp.data + "\t");
