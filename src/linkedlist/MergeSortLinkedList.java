@@ -87,7 +87,7 @@ public class MergeSortLinkedList {
 		LinkedListNode<Integer> left = mergeSort(node);
 		LinkedListNode<Integer> right = mergeSort(nextToMiddle);
 		
-		return null;
+		return sort(left, right);
 	}
 
 	public static void print(LinkedListNode<Integer> head) {
@@ -115,28 +115,7 @@ public class MergeSortLinkedList {
 			}
 			data = scan.nextInt();
 		}
-		data = scan.nextInt();
-		LinkedListNode<Integer> head2 = null;
-		while (data != -1) {
-			LinkedListNode<Integer> temp = new LinkedListNode<Integer>(data);
-			if (head2 == null)
-				head2 = temp;
-			else {
-				LinkedListNode<Integer> tempHead = head2;
-				while (tempHead.next != null) {
-					tempHead = tempHead.next;
-				}
-				tempHead.next = temp;
-			}
-			data = scan.nextInt();
-		}
-
-//		print(head);
-		System.out.println();
-//		print(head2);
-		System.out.println();
-		print(sort(head, head2));
-		
+		print (mergeSort(head));
 		scan.close();
 	}
 
