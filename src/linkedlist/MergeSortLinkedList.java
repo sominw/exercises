@@ -30,12 +30,63 @@ public class MergeSortLinkedList {
 			return temp;
 		}
 	}
-
+	
+	public static LinkedListNode<Integer> sort(LinkedListNode<Integer> left, LinkedListNode<Integer> right) {
+		
+		LinkedListNode<Integer> result = null;
+		
+		if (left.data < right.data) {
+			result = new LinkedListNode<Integer>(left.data);
+			left = left.next;
+		} else {
+			result = new LinkedListNode<Integer>(right.data);
+			right = right.next;
+		}
+		
+		while (left != null && right != null) {
+			
+			LinkedListNode<Integer> tempResult = result;
+			while (tempResult.next != null)
+				tempResult = tempResult.next;
+			
+			if (left.data < right.data) {
+				tempResult.next = new LinkedListNode<Integer>(left.data);
+				left = left.next;
+			}
+			else {
+				tempResult.next = new LinkedListNode<Integer>(right.data);
+				right = right.next;
+			}
+		}
+		while (left != null) {
+			LinkedListNode<Integer> tempResult = result;
+			while (tempResult.next != null)
+				tempResult = tempResult.next;
+			tempResult.next = new LinkedListNode<Integer>(left.data);
+			left = left.next;
+		}
+		while (right != null) {
+			LinkedListNode<Integer> tempResult = result;
+			while (tempResult.next != null)
+				tempResult = tempResult.next;
+			tempResult.next = new LinkedListNode<Integer>(right.data);
+			right = right.next;
+		}
+		return result;
+	}
+	
 	public static LinkedListNode<Integer> mergeSort(LinkedListNode<Integer> node) {
 		if (node == null || node.next == null) {
 			return node;
 		}
-
+		
+		LinkedListNode<Integer> middleNode = getMiddleNode(node);
+		LinkedListNode<Integer> nextToMiddle = middleNode.next;
+		middleNode.next = null;
+		
+		LinkedListNode<Integer> left = mergeSort(node);
+		LinkedListNode<Integer> right = mergeSort(nextToMiddle);
+		
 		return null;
 	}
 
@@ -64,8 +115,28 @@ public class MergeSortLinkedList {
 			}
 			data = scan.nextInt();
 		}
+		data = scan.nextInt();
+		LinkedListNode<Integer> head2 = null;
+		while (data != -1) {
+			LinkedListNode<Integer> temp = new LinkedListNode<Integer>(data);
+			if (head2 == null)
+				head2 = temp;
+			else {
+				LinkedListNode<Integer> tempHead = head2;
+				while (tempHead.next != null) {
+					tempHead = tempHead.next;
+				}
+				tempHead.next = temp;
+			}
+			data = scan.nextInt();
+		}
 
-		print(head);
+//		print(head);
+		System.out.println();
+//		print(head2);
+		System.out.println();
+		print(sort(head, head2));
+		
 		scan.close();
 	}
 
