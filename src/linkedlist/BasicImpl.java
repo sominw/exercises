@@ -4,6 +4,16 @@ class LinkedList {
 
 	Node head;
 	
+	public void lastElementToFirstPosition() {
+		Node tempHead = this.head;
+		while (tempHead.next.next != null) {
+			tempHead = tempHead.next;
+		}
+		tempHead.next.next = this.head;
+		this.head = tempHead.next;
+		tempHead.next = null;
+	}
+	
 	public void alternatingReversedArrangement() {
 		this.reverseList();
 		
@@ -274,8 +284,8 @@ public class BasicImpl {
 		list.insertElement(7);
 		list.insertElement(8);
 		list.insertElement(9);
-		
-		list.alternatingReversedArrangement();
+		list.printList();
+		list.lastElementToFirstPosition();
 		list.printList();
 	}
 }
