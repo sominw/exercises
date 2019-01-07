@@ -1,9 +1,32 @@
 package linkedlist;
 
+import java.util.HashSet;
+
 class LinkedList {
 
 	Node head;
-
+	
+	public void unionOfLists(LinkedList list_temp) {
+		Node currHead = this.head;
+		HashSet<Integer> set = new HashSet<Integer>();
+		while (currHead.next != null) {
+			set.add(currHead.data);
+			currHead = currHead.next;
+		}
+		set.add(currHead.data);
+		Node tempHead = list_temp.head;
+		while (tempHead != null) {
+			if (!set.contains(tempHead.data)) {
+				set.add(tempHead.data);
+				currHead.next = new Node(tempHead.data);
+				tempHead = tempHead.next;
+				currHead = currHead.next;
+			}
+			else
+				tempHead = tempHead.next;
+		}
+	}
+	
 	public void deleteMAfterN(int m, int n) {
 		
 		if (this.head == null)
@@ -309,7 +332,16 @@ public class BasicImpl {
 		list.insertElement(8);
 		list.insertElement(9);
 		list.printList();
-		list.deleteMAfterN(2, 2);
+		
+		LinkedList list2 = new LinkedList();
+		list2.insertElement(2);
+		list2.insertElement(3);
+		list2.insertElement(33);
+		list2.insertElement(5);
+		list2.insertElement(6);
+		list2.printList();
+		
+		list.unionOfLists(list2);
 		list.printList();
 	}
 }
