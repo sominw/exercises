@@ -264,7 +264,30 @@ class LinkedList {
 		}
 		System.out.println("Element not found!");
 	}
-
+	
+	public int returnMiddleElement() {
+		int size = this.getSize();
+		Node curr = this.head;
+		if (size % 2 == 0) {
+			int index = (size / 2)  - 1;
+			int count = 0;
+			while (count != index) {
+				curr = curr.next;
+				count++;
+			}
+			return curr.data;
+		}
+		else {
+			int index = size/2;
+			int count = 0;
+			while (count != index) {
+				curr = curr.next;
+				count++;
+			}
+			return curr.data;
+		}
+	}
+	
 	public int getSize() {
 		Node tempHead = this.head;
 		int count = 0;
@@ -349,7 +372,9 @@ public class BasicImpl {
 		list.insertElement(6);
 		list.insertElement(7);
 		list.insertElement(8);
-		list.insertElementByIndex(9, 3);
+		list.insertElement(9);
 		list.printList();
+		
+		System.out.println(list.returnMiddleElement());
 	}
 }
