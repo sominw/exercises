@@ -3,7 +3,33 @@ package linkedlist;
 class LinkedList {
 
 	Node head;
-	
+
+	public void deleteMAfterN(int m, int n) {
+		
+		if (this.head == null)
+			return;
+		
+		Node fastNode = this.head;
+		Node prevNode = null;
+		int i = 0;
+		int j = 0;
+		
+		while (fastNode != null) {
+			while (i < m && fastNode != null) {
+				i++;
+				prevNode = fastNode;
+				fastNode = fastNode.next;
+			}
+			while (j < n && fastNode != null) {
+				j++;
+				fastNode = fastNode.next;
+			}
+			prevNode.next = fastNode;
+			i = 0;
+			j = 0;
+		}
+	}
+
 	public void lastElementToFirstPosition() {
 		Node tempHead = this.head;
 		while (tempHead.next.next != null) {
@@ -13,53 +39,51 @@ class LinkedList {
 		this.head = tempHead.next;
 		tempHead.next = null;
 	}
-	
+
 	public void alternatingReversedArrangement() {
 		this.reverseList();
-		
+
 		LinkedList list1 = new LinkedList();
 		LinkedList list2 = new LinkedList();
-		
+
 		Node tempHead = this.head;
 		int index = 0;
 		while (tempHead != null) {
 			if (index % 2 == 0) {
 				list1.insertElement(tempHead.data);
-			}
-			else {
+			} else {
 				list2.insertElement(tempHead.data);
 			}
 			index++;
 			tempHead = tempHead.next;
 		}
-		
+
 		list1.printList();
 		list2.printList();
 	}
-	
+
 	public void oddEvenArrangement() {
 		LinkedList oddList = new LinkedList();
 		LinkedList evenList = new LinkedList();
-		
+
 		Node currHead = this.head;
-		
+
 		while (currHead != null) {
 			if (currHead.data % 2 == 0) {
 				evenList.insertElement(currHead.data);
-			}
-			else {
+			} else {
 				oddList.insertElement(currHead.data);
 			}
 			currHead = currHead.next;
 		}
 		Node oddHead = oddList.head;
-		while(oddHead.next != null)
+		while (oddHead.next != null)
 			oddHead = oddHead.next;
 		oddHead.next = evenList.head;
-		
+
 		this.head = oddList.head;
 	}
-	
+
 	public void reverseAtInterval(int k) {
 		if (k >= this.getSize()) {
 			this.reverseList();
@@ -275,17 +299,17 @@ public class BasicImpl {
 	public static void main(String[] args) {
 
 		LinkedList list = new LinkedList();
-		list.insertElement(1); 
-		list.insertElement(2); 
-		list.insertElement(3); 
-		list.insertElement(4); 
+		list.insertElement(1);
+		list.insertElement(2);
+		list.insertElement(3);
+		list.insertElement(4);
 		list.insertElement(5);
 		list.insertElement(6);
 		list.insertElement(7);
 		list.insertElement(8);
 		list.insertElement(9);
 		list.printList();
-		list.lastElementToFirstPosition();
+		list.deleteMAfterN(2, 2);
 		list.printList();
 	}
 }
