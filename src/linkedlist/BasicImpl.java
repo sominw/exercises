@@ -4,6 +4,29 @@ class LinkedList {
 
 	Node head;
 	
+	public void alternatingReversedArrangement() {
+		this.reverseList();
+		
+		LinkedList list1 = new LinkedList();
+		LinkedList list2 = new LinkedList();
+		
+		Node tempHead = this.head;
+		int index = 0;
+		while (tempHead != null) {
+			if (index % 2 == 0) {
+				list1.insertElement(tempHead.data);
+			}
+			else {
+				list2.insertElement(tempHead.data);
+			}
+			index++;
+			tempHead = tempHead.next;
+		}
+		
+		list1.printList();
+		list2.printList();
+	}
+	
 	public void oddEvenArrangement() {
 		LinkedList oddList = new LinkedList();
 		LinkedList evenList = new LinkedList();
@@ -252,7 +275,7 @@ public class BasicImpl {
 		list.insertElement(8);
 		list.insertElement(9);
 		
-		list.oddEvenArrangement();
+		list.alternatingReversedArrangement();
 		list.printList();
 	}
 }
