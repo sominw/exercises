@@ -291,7 +291,26 @@ class LinkedList {
 		tempHead.next = node;
 		System.out.println("Successfully inserted element at index: " + count);
 	}
-
+	
+	public void insertElementByIndex(int element, int index) {
+		if (index >= this.getSize() || this.head == null) {
+			System.out.println("Invalid entry!");
+			return;
+		}
+		
+		Node curr = this.head;
+		int i = 0;
+		
+		while (i != index) {
+			curr = curr.next;
+			i++;
+		}
+		
+		Node next = curr.next;
+		curr.next = new Node(element);
+		curr.next.next = next;
+	}
+	
 	public void printList() {
 		Node tempHead = this.head;
 		if (tempHead == null) {
@@ -330,18 +349,7 @@ public class BasicImpl {
 		list.insertElement(6);
 		list.insertElement(7);
 		list.insertElement(8);
-		list.insertElement(9);
-		list.printList();
-		
-		LinkedList list2 = new LinkedList();
-		list2.insertElement(2);
-		list2.insertElement(3);
-		list2.insertElement(33);
-		list2.insertElement(5);
-		list2.insertElement(6);
-		list2.printList();
-		
-		list.unionOfLists(list2);
+		list.insertElementByIndex(9, 3);
 		list.printList();
 	}
 }
