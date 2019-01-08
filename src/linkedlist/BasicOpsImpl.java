@@ -395,7 +395,7 @@ class LinkedList {
 
 }
 
-public class BasicImpl {
+public class BasicOpsImpl {
 	public static void main(String[] args) {
 
 		LinkedList list = new LinkedList();
