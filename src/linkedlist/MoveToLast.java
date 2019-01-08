@@ -3,19 +3,19 @@ package linkedlist;
 import java.util.Scanner;
 
 public class MoveToLast {
-	
-	public static LinkedListNode<Integer> moveToLast(LinkedListNode<Integer> node, Integer key){
-		
+
+	public static LinkedListNode<Integer> moveToLast(LinkedListNode<Integer> node, Integer key) {
+
 		LinkedListNode<Integer> next = null;
 		LinkedListNode<Integer> prev = null;
 		LinkedListNode<Integer> temp = null;
 		LinkedListNode<Integer> tail = node;
-		
+
 		while (tail.next != null)
 			tail = tail.next;
-		
+
 		LinkedListNode<Integer> tailTemp = tail;
-		
+
 		while (node.data.equals(key) && node != tail) {
 			temp = node;
 			node = node.next;
@@ -23,9 +23,9 @@ public class MoveToLast {
 			tailTemp = tailTemp.next;
 			tailTemp.next = null;
 		}
-		
+
 		LinkedListNode<Integer> curr = node;
-		
+
 		while (curr != tail) {
 			if (curr.data.equals(key)) {
 				temp = curr;
@@ -43,7 +43,7 @@ public class MoveToLast {
 		}
 		return node;
 	}
-	
+
 	public static void print(LinkedListNode<Integer> head) {
 
 		LinkedListNode<Integer> temp = head;
@@ -70,8 +70,8 @@ public class MoveToLast {
 			}
 			data = scan.nextInt();
 		}
-		
-		print (moveToLast(head, 1));
+
+		print(moveToLast(head, 1));
 		scan.close();
 	}
 
