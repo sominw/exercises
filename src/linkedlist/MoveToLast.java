@@ -70,8 +70,10 @@ public class MoveToLast {
 			}
 			data = scan.nextInt();
 		}
-
-		print(moveToLast(head, 1));
+		
+		Integer key = scan.nextInt();
+		
+		print(moveToLast(head, key));
 		scan.close();
 	}
 
