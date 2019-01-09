@@ -14,7 +14,6 @@ public class BasicOpsImpl {
 			q.enqueue(data);
 			data = scan.nextInt();
 		}
-
 		while (q.getSize() > 0) {
 			System.out.print(q.dequeue() + "\t");
 		}
