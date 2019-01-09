@@ -24,7 +24,6 @@ public class BalancedParenthesis {
 				}
 			}
 		}
-
 		return stack.isEmpty();
 	}
 
