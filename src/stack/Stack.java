@@ -1,6 +1,7 @@
 package stack;
 
 public class Stack<T> {
+	
 	T data;
 	Stack<T> next;
 	
