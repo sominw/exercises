@@ -6,6 +6,8 @@ import java.util.Stack;
 public class BalancedParenthesis {
 
 	public static boolean checkForBalancedParenthesis(char[] ch) {
+		if (ch.length <= 1)
+			return false;
 		Stack<Character> stack = new Stack<>();
 		for (char c : ch) {
 			if (c == '{' || c == '(' || c == '[')
