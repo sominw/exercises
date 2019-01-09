@@ -1,11 +1,11 @@
 package stack;
 
-public class Stack<T> {
+public class StackNode<T> {
 	
 	T data;
-	Stack<T> next;
+	StackNode<T> next;
 	
-	public Stack(T data) {
+	public StackNode(T data) {
 		// TODO Auto-generated constructor stub
 		this.data = data;
 		this.next = null;
