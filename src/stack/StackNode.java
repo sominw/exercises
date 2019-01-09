@@ -1,12 +1,63 @@
 package stack;
 
-public class StackNode<T> {
-	
+class Node<T> {
 	T data;
-	StackNode<T> next;
+	Node<T> next;
 	
-	public StackNode(T data) {
+	public Node(T data) {
 		this.data = data;
 		this.next = null;
+	}
+}
+
+public class StackNode<T> {
+	
+	Node<T> top;
+	int size;
+	
+	public StackNode() {
+		this.top = null;
+		size = 0;
+	}
+	
+	public int getSize() {
+		return this.size;
+	}
+	
+	public boolean isEmpty() {
+		return this.size == 0;
+	}
+	
+	public void push(T data) {
+		if (this.top == null) {
+			this.top = new Node(data);
+		}
+		else {
+			Node<T> temp = new Node(data);
+			temp.next = this.top;
+			this.top = temp;
+		}
+	}
+	
+	public T pop() {
+		if (this.top == null) {
+			System.out.println("Underflow!!");
+			return null;
+		}
+		else {
+			Node<T> temp = this.top;
+			this.top = this.top.next;
+			return temp.data;
+		}
+	}
+	
+	public T top() {
+		if (this.top == null) {
+			System.out.println("Underflow!!");
+			return null;
+		}
+		else {
+			return this.top.data;
+		}
 	}
 }
