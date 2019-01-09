@@ -13,9 +13,9 @@ public class InbuiltStackInJava {
 			stack.push(data);
 			data = scan.nextInt();
 		}
-		
-		System.out.println(stack.pop()); // Throws runtime EmptyStack exception!
-		System.out.println(stack.pop());
+		while (stack.size() > 0) {
+			System.out.print(stack.pop() + "\t");
+		}
 		scan.close();
 	}
 }
