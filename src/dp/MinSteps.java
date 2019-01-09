@@ -1,6 +1,6 @@
 package dp;
 
-public class minSteps {
+public class MinSteps {
 
 	public static int countStepsTo1(int n, int[] memo) {
 		if (n == 1)
