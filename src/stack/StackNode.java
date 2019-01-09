@@ -6,7 +6,6 @@ public class StackNode<T> {
 	StackNode<T> next;
 	
 	public StackNode(T data) {
-		// TODO Auto-generated constructor stub
 		this.data = data;
 		this.next = null;
 	}
