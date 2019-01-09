@@ -30,10 +30,10 @@ public class StackNode<T> {
 	
 	public void push(T data) {
 		if (this.top == null) {
-			this.top = new Node(data);
+			this.top = new Node<T>(data);
 		}
 		else {
-			Node<T> temp = new Node(data);
+			Node<T> temp = new Node<T>(data);
 			temp.next = this.top;
 			this.top = temp;
 		}
