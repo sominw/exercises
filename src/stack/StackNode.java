@@ -12,8 +12,8 @@ class Node<T> {
 
 public class StackNode<T> {
 	
-	Node<T> top;
-	int size;
+	private Node<T> top;
+	private int size;
 	
 	public StackNode() {
 		this.top = null;
