@@ -18,7 +18,6 @@ public class BasicOpsImpl {
 		while (q.getSize() > 0) {
 			System.out.print(q.dequeue() + "\t");
 		}
-
 		scan.close();
 	}
 
