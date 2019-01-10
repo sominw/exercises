@@ -33,7 +33,6 @@ public class SortAStack {
 		while (!result.isEmpty()) {
 			System.out.print(result.pop() + "\t");
 		}
-
 		scan.close();
 	}
 }
