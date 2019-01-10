@@ -31,25 +31,25 @@ public class BasicQueue<T> {
 
 	public void enqueue(T data) {
 		if (front == null) {
-			front = new Node<T>(data);
-			rear = front;
-			size++;
+			this.front = new Node<T>(data);
+			this.rear = this.front;
+			this.size++;
 			return;
 		}
 		Node<T> temp = new Node<T>(data);
-		rear.next = temp;
-		rear = temp;
-		size++;
+		this.rear.next = temp;
+		this.rear = temp;
+		this.size++;
 	}
 
 	public T dequeue() {
-		if (front == null) {
+		if (this.front == null) {
 			System.out.println("Underflow!");
 			return null;
 		}
 		Node<T> temp = front;
-		front = front.next;
-		size--;
+		this.front = this.front.next;
+		this.size--;
 		return temp.data;
 	}
 }
