@@ -18,6 +18,7 @@ public class SortAStack {
 			}
 			tempStack.push(curr);
 		}
+		
 		return tempStack;
 	}
 
