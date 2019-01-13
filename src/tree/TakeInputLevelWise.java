@@ -46,7 +46,7 @@ public class TakeInputLevelWise {
 	
 	public static int findTotalNumberOfNodes(TreeNode<Integer> node) {
 		if (node == null)
-			return 0;
+			return 0; //Edge Case
 		int count = 1;
 		for (int i = 0; i < node.children.size(); i++) {
 			count += findTotalNumberOfNodes(node.children.get(i));
