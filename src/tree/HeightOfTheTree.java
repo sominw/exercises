@@ -22,7 +22,6 @@ public class HeightOfTheTree {
 		return Collections.max(heights) + 1;
 	}
 	
-	
 	public static TreeNode<Integer> takeInputLevelWise() {
 		System.out.print("Enter Root Data: ");
 		int data = scan.nextInt();
