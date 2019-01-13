@@ -44,17 +44,6 @@ public class TakeInputLevelWise {
 		}
 	}
 	
-	public static void print(TreeNode<Integer> node) {
-		String s = node.data + ": ";
-		for (int i = 0; i < node.children.size(); i++) {
-			s = s + node.children.get(i).data + ", ";
-		}
-		System.out.println(s);
-		for (int i = 0; i < node.children.size(); i++) {
-			print(node.children.get(i));
-		}
-	}
-
 	public static void main(String[] args) {
 		TreeNode<Integer> root = takeInputLevelWise();
 		printLevelWise (root);
