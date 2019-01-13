@@ -30,7 +30,18 @@ public class TakeInputLevelWise {
 	}
 
 	public static void printLevelWise(TreeNode<Integer> root) {
-		
+		Queue<TreeNode<Integer>> queue = new LinkedList<>();
+		queue.add(root);
+		while (!queue.isEmpty()) {
+			TreeNode<Integer> frontNode = queue.poll();
+			String s = frontNode.data + ": ";
+			int numChildren = frontNode.children.size();
+			for (int i = 0; i < numChildren; i++) {
+				s += frontNode.children.get(i).data + ", ";
+				queue.add(frontNode.children.get(i));
+			}
+			System.out.println(s);
+		}
 	}
 	
 	public static void print(TreeNode<Integer> node) {
@@ -46,6 +57,6 @@ public class TakeInputLevelWise {
 
 	public static void main(String[] args) {
 		TreeNode<Integer> root = takeInputLevelWise();
-		print (root);
+		printLevelWise (root);
 	}
 }
