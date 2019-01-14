@@ -5,13 +5,12 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-import java.util.Set;
 
 public class LargestSumOfNodeAndChildren {
 
 	static Scanner scan = new Scanner(System.in);
 
-	public static TreeNode<Integer> findLargestSumOfNodeAndChildren(TreeNode<Integer> root, 
+	public static TreeNode<Integer> findLargestSumOfNodeAndChildren(TreeNode<Integer> root,
 			HashMap<Integer, TreeNode<Integer>> sumMap) {
 		Integer sum = root.data;
 		for (int i = 0; i < root.children.size(); i++) {
@@ -21,9 +20,7 @@ public class LargestSumOfNodeAndChildren {
 		for (int i = 0; i < root.children.size(); i++) {
 			findLargestSumOfNodeAndChildren(root.children.get(i), sumMap);
 		}
-		Set<Integer> keySet = sumMap.keySet();
-		Integer maxKey = Collections.max(keySet);
-		return sumMap.get(maxKey);
+		return sumMap.get(Collections.max(sumMap.keySet()));
 	}
 
 	public static TreeNode<Integer> takeInputLevelWise() {
