@@ -11,7 +11,8 @@ public class LargestSumOfNodeAndChildren {
 
 	static Scanner scan = new Scanner(System.in);
 
-	public static TreeNode<Integer> findLargestSumOfNodeAndChildren(TreeNode<Integer> root, HashMap<Integer, TreeNode<Integer>> sumMap) {
+	public static TreeNode<Integer> findLargestSumOfNodeAndChildren(TreeNode<Integer> root, 
+			HashMap<Integer, TreeNode<Integer>> sumMap) {
 		Integer sum = root.data;
 		for (int i = 0; i < root.children.size(); i++) {
 			sum += root.children.get(i).data;
