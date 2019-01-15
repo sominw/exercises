@@ -9,12 +9,12 @@ public class BinaryTreeInputRecursive {
 		
 		System.out.println("Enter data: ");
 		int rootData = scan.nextInt();
-		
 		if (rootData == -1)
 			return null;
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(rootData);
 		root.left = takeInput();
 		root.right = takeInput();
 		return root;
+		
 	}
 }
