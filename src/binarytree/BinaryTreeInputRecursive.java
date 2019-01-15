@@ -18,6 +18,7 @@ public class BinaryTreeInputRecursive {
 	}
 	
 	public static void printRecursive(BinaryTreeNode<Integer> root) {
+		
 		if (root == null)
 			return;
 		
