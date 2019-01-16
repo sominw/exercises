@@ -34,8 +34,28 @@ public class BinaryTreeInputIterative {
 		}
 		return root;
 	}
+	
+	public static void print(BinaryTreeNode<Integer> root) {
+		Queue<BinaryTreeNode<Integer>> pendingNodes = new LinkedList<>();
+		if (root == null)
+			return;
+		pendingNodes.add(root);
+		while (!pendingNodes.isEmpty()) {
+			BinaryTreeNode<Integer> front = pendingNodes.poll();
+			System.out.print(front.data + ": ");
+			if (front.left != null) {
+				pendingNodes.add(front.left);
+				System.out.print("\t" + front.left.data);
+			}
+			if (front.right != null) {
+				pendingNodes.add(front.right);
+				System.out.print("\t" + front.left.right);
+			}
+		}
+	}
 
 	public static void main(String[] args) {
 		BinaryTreeNode<Integer> root = takeInput();
+		print (root);
 	}
 }
