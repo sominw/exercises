@@ -22,14 +22,14 @@ public class BinaryTreeInputIterative {
 			if (leftChild != -1) {
 				BinaryTreeNode<Integer> leftNode = new BinaryTreeNode<Integer>(leftChild);
 				pendingNodes.add(leftNode);
-				root.left = leftNode;
+				front.left = leftNode;
 			}
 			System.out.println("Enter right child of " + front.data + ": ");
 			int rightChild = scan.nextInt();
 			if (rightChild != -1) {
 				BinaryTreeNode<Integer> rightNode = new BinaryTreeNode<Integer>(rightChild);
 				pendingNodes.add(rightNode);
-				root.right = rightNode;
+				front.right = rightNode;
 			}
 		}
 		return root;
@@ -43,14 +43,17 @@ public class BinaryTreeInputIterative {
 		while (!pendingNodes.isEmpty()) {
 			BinaryTreeNode<Integer> front = pendingNodes.poll();
 			System.out.print(front.data + ": ");
+			System.out.print("\t");
 			if (front.left != null) {
 				pendingNodes.add(front.left);
-				System.out.print("\t" + front.left.data);
+				System.out.print(front.left.data);
 			}
+			System.out.print("\t");
 			if (front.right != null) {
 				pendingNodes.add(front.right);
-				System.out.print("\t" + front.right.data);
+				System.out.print(front.right.data);
 			}
+			System.out.println();
 		}
 	}
 
