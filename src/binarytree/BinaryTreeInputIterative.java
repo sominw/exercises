@@ -49,7 +49,7 @@ public class BinaryTreeInputIterative {
 			}
 			if (front.right != null) {
 				pendingNodes.add(front.right);
-				System.out.print("\t" + front.left.right);
+				System.out.print("\t" + front.right.data);
 			}
 		}
 	}
