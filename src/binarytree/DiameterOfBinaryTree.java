@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class DiameterOfBinaryTree {
 	static Scanner scan = new Scanner(System.in);
-	
+
 	public static int calculateDiameter(BinaryTreeNode<Integer> root) {
 		if (root == null)
 			return 0;
@@ -17,7 +17,7 @@ public class DiameterOfBinaryTree {
 		int diaRight = calculateDiameter(root.right);
 		return Math.max(cHeight, Math.max(diaLeft, diaRight));
 	}
-	
+
 	public static int height(BinaryTreeNode<Integer> root) {
 		if (root == null)
 			return 0;
@@ -51,7 +51,7 @@ public class DiameterOfBinaryTree {
 		}
 		return root;
 	}
-	
+
 	public static void print(BinaryTreeNode<Integer> root) {
 		Queue<BinaryTreeNode<Integer>> pendingNodes = new LinkedList<>();
 		if (root == null)
@@ -76,7 +76,7 @@ public class DiameterOfBinaryTree {
 
 	public static void main(String[] args) {
 		BinaryTreeNode<Integer> root = takeInput();
-		print (root);
+		print(root);
 		System.out.println("Diameter of the Binary Tree: " + calculateDiameter(root));
 	}
 }
