@@ -7,6 +7,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class DiameterOfBinaryTree {
+	
 	static Scanner scan = new Scanner(System.in);
 
 	public static int calculateDiameter(BinaryTreeNode<Integer> root) {
