@@ -77,7 +77,7 @@ public class DiameterOfBinaryTree {
 
 	public static void main(String[] args) {
 		BinaryTreeNode<Integer> root = takeInput();
-		print(root);
+		print (root);
 		System.out.println("Diameter of the Binary Tree: " + calculateDiameter(root));
 	}
 }
