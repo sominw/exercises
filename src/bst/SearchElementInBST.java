@@ -1,4 +1,4 @@
-// Input must ensure that a BST is constructed
+// Input must ensure that a BST is constructed level-wise (using queue)
 
 package bst;
 
