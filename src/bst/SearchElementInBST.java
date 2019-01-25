@@ -79,7 +79,7 @@ public class SearchElementInBST {
 		System.out.println();
 		System.out.print("Enter element to search: ");
 		Integer data = scan.nextInt();
-		BinaryTreeNode<Integer> searchedNode = searchElement(root, data);
+		BinaryTreeNode<Integer> searchedNode = searchElement (root, data);
 		if (searchedNode != null)
 			System.out.println("Node found: " + searchedNode.data);
 		else
