@@ -72,7 +72,7 @@ public class MoveToLast {
 		}
 		
 		Integer key = scan.nextInt();
-		print(moveToLast(head, key));
+		print (moveToLast(head, key));
 		scan.close();
 	}
 
