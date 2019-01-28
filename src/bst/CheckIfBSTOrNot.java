@@ -22,9 +22,6 @@ public class CheckIfBSTOrNot {
 
 		List<Integer> tempNodes = new ArrayList<>(nodes);
 		Collections.sort(tempNodes);
-
-		System.out.println(nodes);
-
 		return tempNodes.equals(nodes);
 
 	}
