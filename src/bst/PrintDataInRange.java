@@ -1,4 +1,4 @@
-// Sample Input for tree - 40 30 50 10 20 45 60 5 0 15 25 -1 -1 55 75 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+// Sample Input for tree - 8 3 10 1 6 -1 14 -1 -1 4 7 13 -1 -1 -1 -1 -1 -1 -1
 
 package bst;
 
