@@ -11,22 +11,22 @@ import java.util.Scanner;
 
 public class CheckIfBSTOrNot {
 	static Scanner scan = new Scanner(System.in);
-	
+
 	public static boolean checkIfBSTOrNot(BinaryTreeNode<Integer> root, ArrayList<Integer> nodes) {
-		 if (root == null)
-			 return true;
-		 
-		 checkIfBSTOrNot(root.left, nodes);
-		 nodes.add(root.data);
-		 checkIfBSTOrNot(root.right, nodes);
-		 
-		 List<Integer> tempNodes = new ArrayList<>(nodes);
-		 Collections.sort(tempNodes);
-		 
-		 System.out.println(nodes);
-		 
-		 return tempNodes.equals(nodes);
-		 
+		if (root == null)
+			return true;
+
+		checkIfBSTOrNot(root.left, nodes);
+		nodes.add(root.data);
+		checkIfBSTOrNot(root.right, nodes);
+
+		List<Integer> tempNodes = new ArrayList<>(nodes);
+		Collections.sort(tempNodes);
+
+		System.out.println(nodes);
+
+		return tempNodes.equals(nodes);
+
 	}
 
 	public static BinaryTreeNode<Integer> takeInput() {
