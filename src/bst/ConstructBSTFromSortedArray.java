@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
 
+import binarytree.BinaryTreeNode;
+
 public class ConstructBSTFromSortedArray {
 	static Scanner scan = new Scanner(System.in);
 
@@ -16,19 +18,26 @@ public class ConstructBSTFromSortedArray {
 
 		BinaryTreeNode<Integer> root = null;
 
-		if (end > start) {
-			int mid = (end + start) / 2;
-			root = new BinaryTreeNode<Integer>(arr[mid]);
-//			print (root);
-			root.left = constructBSTFromSortedArray(arr, start, mid - 1);
-			root.right = constructBSTFromSortedArray(arr, mid + 1, end);
-			return root;
-		} else {
+		if (start > end) {
 			return null;
 		}
+		
+		int mid = (end + start) / 2;
+		root = new BinaryTreeNode<Integer>(arr[mid]);
+		root.left = constructBSTFromSortedArray(arr, start, mid - 1);
+		root.right = constructBSTFromSortedArray(arr, mid + 1, end);
+		return root;
 
 	}
-
+	
+	public static void inorderPrint(BinaryTreeNode<Integer> root) {
+		if (root == null)
+			return;
+		inorderPrint(root.left);
+		System.out.print(root.data + "\t");
+		inorderPrint(root.right);
+	}
+	
 	public static BinaryTreeNode<Integer> takeInput() {
 		Queue<BinaryTreeNode<Integer>> pendingNodes = new LinkedList<>();
 		System.out.print("Enter root data: ");
@@ -85,6 +94,6 @@ public class ConstructBSTFromSortedArray {
 		System.out.println();
 		int[] arr = { 1, 2, 3, 4, 5, 6, 7 };
 		BinaryTreeNode<Integer> root = constructBSTFromSortedArray(arr, 0, arr.length - 1);
-		print(root);
+		print (root);
 	}
 }
