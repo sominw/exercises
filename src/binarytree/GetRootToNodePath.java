@@ -1,11 +1,9 @@
-// Sample Input: 
+// Sample Input: 1 2 3 4 8 -1 -1 5 -1 -1 9 6 -1 -1 10 7 -1 -1 -1 -1 -1 
+// Output: 8 6 3 1
 
 package binarytree;
 
 import java.util.ArrayList;
-
-//Sample Input: 1 2 3 4 8 -1 -1 5 -1 -1 9 6 -1 -1 10 7 -1 -1 -1 -1 -1 
-
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
