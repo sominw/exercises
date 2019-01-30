@@ -41,7 +41,7 @@ public class BinarySearchTree {
 	}
 
 	public void insert(Integer data) {
-		insert(data, this.root);
+		this.root = insert(data, this.root);
 	}
 
 	private BinaryTreeNode<Integer> delete(Integer data, BinaryTreeNode<Integer> node) {
@@ -88,8 +88,10 @@ public class BinarySearchTree {
 	
 	private void print(BinaryTreeNode<Integer> root) {
 		Queue<BinaryTreeNode<Integer>> pendingNodes = new LinkedList<>();
-		if (root == null)
+		if (root == null) {
+			System.out.println("Root is null");
 			return;
+		}
 		pendingNodes.add(root);
 		while (!pendingNodes.isEmpty()) {
 			BinaryTreeNode<Integer> front = pendingNodes.poll();
