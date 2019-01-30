@@ -45,10 +45,10 @@ public class BinarySearchTree {
 	}
 
 	private BinaryTreeNode<Integer> delete(Integer data, BinaryTreeNode<Integer> node) {
-		
+
 		if (node == null)
 			return null;
-		
+
 		if (data > node.data) {
 			node.right = delete(data, node.right);
 			return node;
@@ -84,7 +84,7 @@ public class BinarySearchTree {
 	public void delete(Integer data) {
 		delete(data, this.root);
 	}
-	
+
 	private void print(BinaryTreeNode<Integer> root) {
 		Queue<BinaryTreeNode<Integer>> pendingNodes = new LinkedList<>();
 		if (root == null) {
@@ -108,7 +108,7 @@ public class BinarySearchTree {
 			System.out.println();
 		}
 	}
-	
+
 	public void printTree() {
 		this.print(this.root);
 	}
