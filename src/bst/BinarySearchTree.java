@@ -41,7 +41,45 @@ public class BinarySearchTree {
 		insert(data, this.root);
 	}
 
-	public void delete() {
+	private BinaryTreeNode<Integer> delete(Integer data, BinaryTreeNode<Integer> node) {
 
+		if (node == null)
+			return null;
+
+		if (data > node.data) {
+			node.right = delete(data, node.right);
+		} else {
+			node.left = delete(data, node.left);
+		}
+
+		if (node.data == data && node.left == null && node.right == null) {
+			node = null;
+			return node;
+		}
+
+		if (node.data == data && node.left != null && node.right == null) {
+			BinaryTreeNode<Integer> temp = node.left;
+			node.left = null;
+			return temp;
+		} else if (node.data == data && node.left == null && node.right != null) {
+			BinaryTreeNode<Integer> temp = node.right;
+			node.right = null;
+			return temp;
+		} else {
+			BinaryTreeNode<Integer> minNode = node.right;
+			while (minNode.left != null) {
+				minNode = minNode.left;
+			}
+			int minData = minNode.data;
+			node.data = minData;
+			node.right = delete(minData, node.right);
+		}
+		
+		return node;
+
+	}
+
+	public void delete(Integer data) {
+		delete(data, this.root);
 	}
 }
