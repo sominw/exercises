@@ -45,19 +45,20 @@ public class BinarySearchTree {
 	}
 
 	private BinaryTreeNode<Integer> delete(Integer data, BinaryTreeNode<Integer> node) {
-
+		
 		if (node == null)
 			return null;
-
+		
 		if (data > node.data) {
 			node.right = delete(data, node.right);
-		} else {
+			return node;
+		} else if (data < node.data) {
 			node.left = delete(data, node.left);
+			return node;
 		}
 
 		if (node.data == data && node.left == null && node.right == null) {
-			node = null;
-			return node;
+			return null;
 		}
 
 		if (node.data == data && node.left != null && node.right == null) {
@@ -76,10 +77,8 @@ public class BinarySearchTree {
 			int minData = minNode.data;
 			node.data = minData;
 			node.right = delete(minData, node.right);
+			return node;
 		}
-		
-		return node;
-
 	}
 
 	public void delete(Integer data) {
