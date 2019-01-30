@@ -9,9 +9,9 @@ public class BinarySearchTreeTest {
 		bst.insert(7);
 		bst.insert(3);
 		bst.insert(15);
-		
+
 		bst.delete(10);
-		
+
 		bst.printTree();
 	}
 }
