@@ -1,5 +1,8 @@
 package bst;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinarySearchTree {
 
 	public BinaryTreeNode<Integer> root;
@@ -81,5 +84,31 @@ public class BinarySearchTree {
 
 	public void delete(Integer data) {
 		delete(data, this.root);
+	}
+	
+	private void print(BinaryTreeNode<Integer> root) {
+		Queue<BinaryTreeNode<Integer>> pendingNodes = new LinkedList<>();
+		if (root == null)
+			return;
+		pendingNodes.add(root);
+		while (!pendingNodes.isEmpty()) {
+			BinaryTreeNode<Integer> front = pendingNodes.poll();
+			System.out.print(front.data + ": ");
+			System.out.print("\t");
+			if (front.left != null) {
+				pendingNodes.add(front.left);
+				System.out.print(front.left.data);
+			}
+			System.out.print("\t");
+			if (front.right != null) {
+				pendingNodes.add(front.right);
+				System.out.print(front.right.data);
+			}
+			System.out.println();
+		}
+	}
+	
+	public void printTree() {
+		this.print(this.root);
 	}
 }
