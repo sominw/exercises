@@ -2,26 +2,36 @@
 
 package bst;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.Set;
 
 public class PrintDataInRange {
 	static Scanner scan = new Scanner(System.in);
 
-	public static void printDataInRange(BinaryTreeNode<Integer> root, Integer max, Integer min) {
+	public static ArrayList<Integer> printDataInRange(BinaryTreeNode<Integer> root, Integer max, Integer min, Set<Integer> set) {
 		if (root == null)
-			return;
+			return null;
 
-		if (root.data >= max) {
-			printDataInRange(root.left, max, min);
-		} else if (root.data <= min) {
-			printDataInRange(root.right, max, min);
-		} else if (root.data < max && root.data > min) {
-			System.out.print(root.data + "\t");
-			printDataInRange(root.left, max, min);
-			printDataInRange(root.right, max, min);
+		if (root.data > max) {
+			printDataInRange(root.left, max, min, set);
+		} else if (root.data < min) {
+			printDataInRange(root.right, max, min, set);
+		} else if (root.data <= max && root.data >= min) {
+			set.add(root.data);
+			printDataInRange(root.left, max, min, set);
+			printDataInRange(root.right, max, min, set);
 		}
+		
+		ArrayList<Integer> list = new ArrayList<>(set);
+		Collections.sort(list);
+		
+		return list;
 	}
 
 	public static BinaryTreeNode<Integer> takeInput() {
@@ -82,6 +92,10 @@ public class PrintDataInRange {
 		Integer max = scan.nextInt();
 		System.out.print("Enter min: ");
 		Integer min = scan.nextInt();
-		printDataInRange(root, max, min);
+		ArrayList<Integer> list = printDataInRange(root, max, min, new HashSet<>());
+		
+		for (Integer i : list) {
+			System.out.print(i + " ");
+		}
 	}
 }
