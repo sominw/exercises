@@ -11,6 +11,7 @@ public class BinarySearchTreeTest {
 		bst.insert(15);
 
 		bst.delete(10);
+		bst.delete(3);
 
 		bst.printTree();
 	}
