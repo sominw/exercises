@@ -23,7 +23,6 @@ public class CheckIfBSTOrNot {
 		List<Integer> tempNodes = new ArrayList<>(nodes);
 		Collections.sort(tempNodes);
 		return tempNodes.equals(nodes);
-
 	}
 
 	public static BinaryTreeNode<Integer> takeInput() {
