@@ -13,6 +13,7 @@ public class CheckIfBSTOrNot {
 	static Scanner scan = new Scanner(System.in);
 
 	public static boolean checkIfBSTOrNot(BinaryTreeNode<Integer> root, ArrayList<Integer> nodes) {
+		
 		if (root == null)
 			return true;
 
