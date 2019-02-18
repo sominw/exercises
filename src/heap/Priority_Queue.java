@@ -46,7 +46,7 @@ public class Priority_Queue {
 		}
 	}
 
-	int delete() throws Exception {
+	int removeMin() throws Exception {
 
 		if (this.heap.isEmpty()) {
 			throw new Exception("PQ Empty!");
