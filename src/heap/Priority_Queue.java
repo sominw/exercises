@@ -43,7 +43,40 @@ public class Priority_Queue {
 			} else {
 				return;
 			}
-
 		}
+	}
+
+	int delete() throws Exception {
+
+		if (this.heap.isEmpty()) {
+			throw new Exception("PQ Empty!");
+		}
+		int temp = heap.get(0);
+		heap.set(0, heap.get(heap.size() - 1));
+		heap.remove(heap.size() - 1);
+		int leftIndex = 1;
+		int rightIndex = 2;
+		int currIndex = 0;
+		int minIndex = currIndex;
+
+		while (leftIndex < heap.size()) {
+			if (heap.get(leftIndex) < heap.get(minIndex)) {
+				minIndex = leftIndex;
+			}
+			if (rightIndex < heap.size() && heap.get(rightIndex) < heap.get(minIndex)) {
+				minIndex = rightIndex;
+			}
+			if (minIndex == currIndex) {
+				break;
+			} else {
+				int temp1 = heap.get(currIndex);
+				heap.set(currIndex, heap.get(minIndex));
+				heap.set(minIndex, temp1);
+				currIndex = minIndex;
+				leftIndex = 2 * currIndex + 1;
+				rightIndex = 2 * currIndex + 2;
+			}
+		}
+		return temp;
 	}
 }
