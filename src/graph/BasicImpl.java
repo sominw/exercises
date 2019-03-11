@@ -3,7 +3,7 @@ package graph;
 import java.util.Scanner;
 
 public class BasicImpl {
-	
+
 	public static void depthFirstSearchTraversal_Helper(int[][] edges, int[] visited, int startNode) {
 		visited[startNode] = 1;
 		System.out.print(startNode + "\t");
@@ -13,7 +13,7 @@ public class BasicImpl {
 			}
 		}
 	}
-	
+
 	public static void depthFirstSearchTraversal(int[][] edges) {
 		int[] visited = new int[edges.length];
 		for (int i = 0; i < visited.length; i++) {
