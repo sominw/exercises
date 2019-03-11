@@ -4,7 +4,24 @@ import java.util.Scanner;
 
 public class BasicImpl {
 	
+	public static void depthFirstSearchTraversal_Helper(int[][] edges, int[] visited, int startNode) {
+		visited[startNode] = 1;
+		System.out.print(startNode + "\t");
+		for (int i = 0; i < edges[startNode].length; i++) {
+			if (edges[startNode][i] == 1 && visited[i] != 1) {
+				depthFirstSearchTraversal_Helper(edges, visited, i);
+			}
+		}
+	}
 	
+	public static void depthFirstSearchTraversal(int[][] edges) {
+		int[] visited = new int[edges.length];
+		for (int i = 0; i < visited.length; i++) {
+			if (visited[i] != 1) {
+				depthFirstSearchTraversal_Helper(edges, visited, i);
+			}
+		}
+	}
 
 	public static void main(String[] args) {
 
@@ -19,7 +36,8 @@ public class BasicImpl {
 			edges[s][e] = 1;
 			edges[e][s] = 1;
 		}
-		printMatrix(edges);
+//		printMatrix(edges);
+		depthFirstSearchTraversal(edges);
 		scan.close();
 	}
 
