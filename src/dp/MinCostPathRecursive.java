@@ -26,7 +26,7 @@ public class MinCostPathRecursive {
 		if (i >= m || j >=n) {
 			return Integer.MAX_VALUE;
 		}
-		
+		 
 		return arr[i][j] + Math.min(minCostPath(arr, i+1, j), Math.min(minCostPath(arr, i,j+1), minCostPath(arr, i+1, j+ 1)));
 	}
 
