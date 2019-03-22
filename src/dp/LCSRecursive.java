@@ -1,6 +1,6 @@
 package dp;
 
-public class LCS {
+public class LCSRecursive {
 	
 	public static int lcs(String s, String t) {
 		
@@ -13,9 +13,8 @@ public class LCS {
 		} else {
 			int opt1 = lcs(s, t.substring(1));
 			int opt2 = lcs(s.substring(1),t);
-			int opt3 = lcs(s.substring(1), t.substring(1));
 			
-			return Math.max(opt1, Math.max(opt2, opt3));
+			return Math.max(opt1, opt2);
 		}
 		
 		
