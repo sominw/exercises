@@ -10,7 +10,6 @@ public class MinCostPathRecursive {
 	}
 
 	private static int minCostPath(int[][] arr) {
-		// TODO Auto-generated method stub
 		return minCostPath(arr,0,0);
 	}
 
