@@ -1,6 +1,6 @@
 package dp;
 
-public class MinCostPath {
+public class MinCostPathRecursive {
 
 	public static void main(String[] args) {
 		
