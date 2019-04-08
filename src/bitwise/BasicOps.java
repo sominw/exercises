@@ -28,9 +28,9 @@ public class BasicOps {
 		System.out.println("AND Operator between " + a + " & " + c + " : " + (a&c));
 		System.out.println("XOR Operator between " + a + " & " + b + " : " + (a^b));
 		System.out.println("XOR Operator between " + a + " & " + c + " : " + (a^c));
-		System.out.println("Compliment of " + a + " : " + (~a));
-		System.out.println("Compliment of " + b + " : " + (~b));
-		System.out.println("Compliment of " + c + " : " + (~c));
+		System.out.println("Compliment of " + a + ": " + (~a));
+		System.out.println("Compliment of " + b + ": " + (~b));
+		System.out.println("Compliment of " + c + ": " + (~c));
 
 	}
 
