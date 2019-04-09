@@ -49,7 +49,6 @@ public class QuickSort {
 
 		quickSort(arr, 0, size - 1);
 
-//		System.out.println(partition(arr, 0, size));
 		System.out.println("---");
 		for (int i = 0; i < size; i++) {
 			System.out.print(arr[i] + "\t");
