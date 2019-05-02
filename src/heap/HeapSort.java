@@ -9,7 +9,6 @@ public class HeapSort {
 		heap.add(val);
 		int currIndex = heap.size() - 1;
 		int parentIndex = (currIndex - 1) / 2;
-//		int max = currIndex;
 		while (parentIndex >= 0) {
 			if (heap.get(parentIndex) < heap.get(currIndex)) {
 				int temp = heap.get(parentIndex);
