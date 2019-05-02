@@ -3,7 +3,7 @@ package heap;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HeapSort {
+public class HeapSort { 
 	
 	public static void insertToHeap(List<Integer> heap, int val) {
 		heap.add(val);
