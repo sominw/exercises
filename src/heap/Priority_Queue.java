@@ -6,7 +6,7 @@ package heap;
 import java.util.ArrayList;
 
 public class Priority_Queue {
-	private ArrayList<Integer> heap;
+	public ArrayList<Integer> heap;
 
 	public Priority_Queue() {
 		heap = new ArrayList<>();
