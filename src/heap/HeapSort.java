@@ -53,11 +53,13 @@ public class HeapSort {
 
 	public static void main(String[] args) {
 
-		int[] arr = { 5,6,7,2,5,45,46,644,34,4,4,25,23,5,234,34,5,4 };
+		int[] arr = { 10,14,19,26,31,42,27,44,35,33 };
 		ArrayList<Integer> heap = new ArrayList<Integer>();
 		
 		for (Integer i: arr)
 			insertToHeap(heap, i);
+		
+		System.out.println(heap);
 		
 		while (!heap.isEmpty())
 			System.out.print(getMax(heap) + "\t");
