@@ -46,7 +46,6 @@ public class HeapSort {
 			return 0;
 
 		int top = heap.get(0);
-//		System.out.println(top);
 		heap.set(0, heap.get(heap.size() - 1));
 		heap.remove(heap.size() - 1);
 		heapify(heap, 0);
