@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class Graph {
 	
 	private int V;
-	private LinkedList<Integer> adj[];
+	public LinkedList<Integer> adj[];
 	
 	public Graph(int v) {
 		
@@ -17,9 +17,9 @@ public class Graph {
 		}
 	
 	}
-	
+
 	void addEdge(int v, int w) {
-		if (v >= this.V || w >= this.V ) {
+		if ((v >= this.V || w >= this.V) || (v == w) ) {
 			System.out.println("Invalid Edge");
 			return;
 		}
@@ -30,6 +30,18 @@ public class Graph {
 	
 	int numNodes() {
 		return this.V;
+	}
+	
+	void print() {
+		int i = 0;
+		for (LinkedList<Integer> list: adj) {
+			System.out.print(i + ": ");
+			for (Integer node: list) {
+				System.out.print(node + "\t");
+			}
+			System.out.println();
+			i++;
+		}
 	}
 	
 	
