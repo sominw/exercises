@@ -1,9 +1,46 @@
 package graph;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class GraphFuncs {
+	
+	private static void getPathUtil(Graph g, int curr, int target, List<Integer> path, boolean[] visited) {
+		
+		visited[curr] = true;
+		
+		if (curr == target) {
+			for (Integer ip: path)
+				System.out.print(ip + "\t");
+			visited[curr] = false;
+			System.out.println();
+			return;
+		}
+		
+		for (Integer i: g.adj[curr]) {
+			if (visited[i] == false) {
+				path.add(i);
+				getPathUtil(g, i, target, path, visited);
+				path.remove(i);
+			}
+		}
+		
+		
+	}
+	
+	public static void getPath(Graph g, int s, int e) {
+		
+		if (s == e || (s >= g.numNodes() || e >= g.numNodes()))
+			return;
+		
+		boolean visited[] = new boolean[g.numNodes()];
+		List<Integer> path = new ArrayList<Integer>();
+		path.add(s);
+		getPathUtil(g, s, e, path, visited);
+		
+	}
 
 	private static void BFSUtil(Graph g, int node, boolean[] visited) {
 
@@ -70,7 +107,7 @@ public class GraphFuncs {
 		g.addEdge(6, 7);
 		g.addEdge(5, 7);
 
-		BFS(g);
+		getPath(g, 2, 3);
 
 	}
 
