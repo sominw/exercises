@@ -1,8 +1,41 @@
 package graph;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class GraphFuncs {
+	
+	private static void BFSUtil(Graph g, int node, boolean[] visited) {
+		
+		Queue<Integer> queue = new LinkedList<Integer>();
+		queue.add(node);
+		
+		while (!queue.isEmpty()) {
+			int v = queue.remove();
+			if (visited[v] == false) {
+				visited[v] = true;
+				System.out.print(v +"\t");
+			}
+			LinkedList<Integer> connections = g.adj[v];
+			for (Integer i: connections) {
+				if (visited[i] == false)
+					queue.add(i);
+			}
+		}
+		
+	}
+	
+	public static void BFS(Graph g) {
+		
+		boolean visited[] = new boolean[g.numNodes()];
+		
+		for(int i = 0; i < g.numNodes(); i++) {
+			if (visited[i] == false) {
+				BFSUtil(g, i, visited);
+			}
+		}
+		
+	}
 	
 	private static void DFSUtil(Graph g, int node, boolean visited[]) {
 		visited[node] = true;
@@ -37,7 +70,7 @@ public class GraphFuncs {
 		g.addEdge(6, 7);
 		g.addEdge(5, 7);
 		
-		DFS(g);
+		BFS(g);
 		
 	}
 
