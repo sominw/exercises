@@ -9,17 +9,17 @@ public class GraphFuncs {
 		
 		Queue<Integer> queue = new LinkedList<Integer>();
 		queue.add(node);
+		visited[node] = true;
 		
 		while (!queue.isEmpty()) {
 			int v = queue.remove();
-			if (visited[v] == false) {
-				visited[v] = true;
-				System.out.print(v +"\t");
-			}
+ 			System.out.print(v +"\t");
 			LinkedList<Integer> connections = g.adj[v];
 			for (Integer i: connections) {
-				if (visited[i] == false)
+				if (visited[i] == false) {
 					queue.add(i);
+					visited[i] = true;
+				}
 			}
 		}
 		
