@@ -7,6 +7,32 @@ import java.util.Queue;
 
 public class GraphFuncs {
 	
+	private static List<Integer> getConnectedComponentsDFSUtil(Graph g, int node, boolean[] visited, List<Integer> list) {
+		
+		visited[node] = true;
+		list.add(node);
+		for (Integer n: g.adj[node]) {
+			if (visited[n] == false)
+				getConnectedComponentsDFSUtil(g, n, visited, list);
+		}
+		return list;
+	}
+	
+	public static List<List<Integer>> getConnectedComponents(Graph g) {
+		if (g == null)
+			return null;
+		
+		boolean[] visited = new boolean[g.numNodes()];
+		List<List<Integer>> res = new ArrayList<List<Integer>>();
+		for (int i = 0; i < g.numNodes(); i++) {
+			if (visited[i] == false) {
+				res.add(getConnectedComponentsDFSUtil(g, i, visited, new ArrayList<Integer>()));
+			}
+		}
+		return res;
+		
+	}
+	
 	private static void getPathUtil(Graph g, int curr, int target, List<Integer> path, boolean[] visited) {
 		
 		visited[curr] = true;
@@ -107,7 +133,14 @@ public class GraphFuncs {
 		g.addEdge(6, 7);
 		g.addEdge(5, 7);
 
-		getPath(g, 2, 3);
+		List<List<Integer>> result = getConnectedComponents(g);
+		
+		for (List<Integer> list: result) {
+			for (Integer i: list) {
+				System.out.print(i + "\t");
+			}
+			System.out.println("\n");
+		}
 
 	}
 
