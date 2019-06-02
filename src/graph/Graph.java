@@ -2,6 +2,7 @@ package graph;
 
 import java.util.LinkedList;
 
+// Adjacency List
 public class Graph {
 	
 	private int V;
