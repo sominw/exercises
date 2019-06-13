@@ -77,7 +77,7 @@ class GraphAM {
 			return;
 		}
 		this.mat[src][dest] = weight;
-		this.mat[dest][src] = weight;
+//		this.mat[dest][src] = weight;
 	}
 	
 	public void removeEdge(int src, int dest) {
